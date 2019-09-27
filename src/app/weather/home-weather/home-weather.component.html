@@ -1,0 +1,50 @@
+<div class="m-2">
+  <div class="search-container">
+    <input #searchInput pattern="[A-Za-z]" class="search-input" type="text"
+           (keyup.enter)="validInput && onSearch(searchInput.value)" placeholder="Search City"
+           (change)="checkValues(searchInput.value)"> <i
+    class="fas fa-search-location search-icon pointer" (click)="validInput && onSearch(searchInput.value)"></i>
+  </div>
+
+  <ng-container *ngIf="(weatherData$ | async).main as weatherData; else noDataMessage">
+    <div class="d-flex">
+          <div class="ml-auto" (click)="toggleFavorite()">
+        <i *ngIf="isFavorite" class="fas fa-heart favorite-icon"></i>
+        <i *ngIf="!isFavorite" class="far fa-heart favorite-icon"></i>
+        <button class="custom-button">
+          <span *ngIf="isFavorite">Remove from Favorites</span> <span *ngIf="!isFavorite">Add to Favorites</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column weather-container">
+      <div class="current-weather-container d-flex">
+        <div class="p-2 weather-icon">
+          <i [class]="buildWeatherIcon(weatherData.weatherType)" style="font-size:30px;"> </i>
+        </div>
+        <div>
+          <div>{{weatherData.city}}</div>
+          <div>{{weatherData.degree| number:'1.0-0'}}<span *ngIf="degreeType == 'celsius'">° </span>
+            <span
+              *ngIf="degreeType == 'fahrenheit'">F</span></div>
+        </div>
+
+      </div>
+
+      <div class="weather-type">{{weatherData.weatherType |uppercase}}</div>
+      <div class="d-flex">
+        <div class="d-flex weather-item m-2" *ngFor="let  weatherItem of (weatherData$ | async).days">
+          <app-weather-detail
+            [item]="weatherItem" [degreeType]="weatherData.degreeType" class="d-flex m-2">
+          </app-weather-detail>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</div>
+
+
+<ng-template #noDataMessage>
+  <p>There is no data </p>
+</ng-template>

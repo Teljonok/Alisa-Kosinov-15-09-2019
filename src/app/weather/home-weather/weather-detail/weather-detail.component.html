@@ -1,0 +1,5 @@
+
+<div class="detail">
+  <div class="">{{item.date |date: "EEE"}}</div>
+  <div class="">{{item.degree| number:'1.0-0'}} <span *ngIf="celsius" >° </span> <span *ngIf="!celsius " >F</span>  </div>
+</div>

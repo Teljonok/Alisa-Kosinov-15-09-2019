@@ -1,0 +1,7 @@
+<div class="d-flex m-2">
+  <div class="favorite-item d-flex flex-column m-2 p-2" *ngFor="let favorite of (favorites$ |async)">
+    <div class="">{{favorite.city}}</div>
+    <div class="">{{favorite.degree| number:'1.0-0'}} °  </div>
+    <div class="favorite-item-weatherType mt-3">{{favorite.weatherType}} </div>
+  </div>
+</div>

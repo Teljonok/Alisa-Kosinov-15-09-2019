@@ -1,0 +1,15 @@
+.color-light{
+  color:#ffffff80;
+}
+
+.main-body{
+  border-bottom: 2px solid #abacb0;
+  padding: 20px;
+}
+
+.custom-button{
+  background-color: #a3b6c1;
+  outline: none;
+  padding: 0 5px;
+  margin: 0 15px;
+}

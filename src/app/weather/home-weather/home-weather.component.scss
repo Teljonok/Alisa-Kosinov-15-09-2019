@@ -1,0 +1,40 @@
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 30%;
+  outline: none;
+  background-color: #a3b6c1;
+  padding: 5px 55px 5px 10px;
+  top: 1px;
+}
+
+.search-icon{
+  font-size: 30px;
+  color: #929ca5;
+  margin: 5px;
+}
+
+.weather-container{
+  border: 1px solid #abacb0;
+}
+
+.favorite-icon{
+  position: relative;
+  font-size: 25px;
+  padding-right: 5px;
+  top: 3px;
+}
+.weather-type{
+  align-self: center;
+}
+
+.weather-item{
+  flex-basis: 15%;
+  height: 120px;
+  border: 1px solid #343a40;
+  justify-content: center;
+}
